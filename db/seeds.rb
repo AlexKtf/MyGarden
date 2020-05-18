@@ -1,8 +1,14 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+Family.create!(name: 'Alocasia', scientific_name: 'Alocasia macrorrhiza')
+Family.create!(name: 'Anthurium', scientific_name: 'Anthurium')
+Family.create!(name: 'Chlorophytum', scientific_name: 'Chlorophytum comosum')
+Family.create!(name: 'Dipladenia', scientific_name: 'Mandevilla')
+Family.create!(name: 'Dracaena', scientific_name: 'Dracaena')
+Family.create!(name: 'Ficus', scientific_name: 'Ficus')
+Family.create!(name: 'Fleur de porcelaine', scientific_name: 'Hoya')
+Family.create!(name: 'Misère', scientific_name: 'Tradescantia')
+Family.create!(name: 'Monstera', scientific_name: 'Monstera deliciosa')
+Family.create!(name: 'Papyrus', scientific_name: 'Cyperus alternifolius')
+Family.create!(name: 'Langue de belle-mère', scientific_name: 'Sansevieria')
+Family.create!(name: 'Fleur de lune', scientific_name: 'Spathiphyllum hybride')
