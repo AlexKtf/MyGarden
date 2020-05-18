@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  database: mygarden-dev
+  encoding: unicode
+  hostname: localhost
+  pool: <%= ENV.fetch('POOL_SIZE') { 5 } %>
+
+test:
+  adapter: postgresql
+  database: mygarden-test
+  encoding: unicode
+  hostname: localhost
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+
+production:
+  pool: <%= ENV.fetch('POOL_SIZE') { 5 } %>
