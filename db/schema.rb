@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_105905) do
+ActiveRecord::Schema.define(version: 2020_05_23_112522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,24 @@ ActiveRecord::Schema.define(version: 2020_05_18_105905) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["family_id"], name: "index_plants_on_family_id"
     t.index ["name"], name: "index_plants_on_name", unique: true
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_seasons_on_name", unique: true
+  end
+
+  create_table "waterings", force: :cascade do |t|
+    t.bigint "plant_id", null: false
+    t.bigint "season_id", null: false
+    t.string "rhythm", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plant_id", "season_id"], name: "index_waterings_on_plant_id_and_season_id", unique: true
   end
 
   add_foreign_key "plants", "families"

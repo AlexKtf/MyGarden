@@ -1,5 +1,27 @@
 # frozen_string_literal: true
 
+seasons = {}
+{
+  summer: {
+    start_at: Date.parse('2020-06-20').change(year: Date.current.year),
+    end_at: Date.parse('2020-07-21').change(year: Date.current.year)
+  },
+  autumn: {
+    start_at: Date.parse('2020-07-22').change(year: Date.current.year),
+    end_at: Date.parse('2020-12-20').change(year: Date.current.year)
+  },
+  winter: {
+    start_at: Date.parse('2020-12-21').change(year: Date.current.year),
+    end_at: Date.parse('2020-03-19').change(year: Date.current.year)
+  },
+  spring: {
+    start_at: Date.parse('2020-03-20').change(year: Date.current.year),
+    end_at: Date.parse('2020-6-19').change(year: Date.current.year)
+  }
+}.each do |season, dates|
+  seasons[season] = Season.create!(name: season, start_at: dates[:start_at], end_at: dates[:end_at])
+end
+
 alocasia = Family.create!(name: 'Alocasia', scientific_name: 'Alocasia macrorrhiza')
 anthurium = Family.create!(name: 'Anthurium', scientific_name: 'Anthurium')
 chlorophytum = Family.create!(name: 'Chlorophytum', scientific_name: 'Chlorophytum comosum')
@@ -12,6 +34,16 @@ monstera = Family.create!(name: 'Monstera', scientific_name: 'Monstera deliciosa
 papyrus = Family.create!(name: 'Papyrus', scientific_name: 'Cyperus alternifolius')
 sansevieria = Family.create!(name: 'Langue de belle-mère', scientific_name: 'Sansevieria')
 fleur = Family.create!(name: 'Fleur de lune', scientific_name: 'Spathiphyllum hybride')
+aromates = Family.create!(name: 'Aromates', scientific_name: 'Aromates')
+
+
+# Aromates
+['Basilic'].each do |name|
+  plant = Plant.create!(name: name, family: aromates)
+  seasons.each do |season, model|
+    plant.waterings.create!(season: model, rhythm: :daily)
+  end
+end
 
 # Alocasia
 ['Alocasia Ventii', 'Sanderiana', 'Watsoniana', 'Odora', 'Cucullata', 'Bambino', 'Plumbea Nigra',
